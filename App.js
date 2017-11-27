@@ -6,6 +6,7 @@ import {Text} from 'react-native';
 import News from './app/pages/News/News';
 import Me from './app/pages/Me/Me';
 import Application from './app/pages/Application/Application';
+import ChatScreen from './app/pages/ChatScreen/ChatScreen';
 import {TabNavigator, StackNavigator} from "react-navigation";
 
 const HomeScreen = TabNavigator({
@@ -28,17 +29,7 @@ const HomeScreen = TabNavigator({
 });
 
 
-class ChatScreen extends Component {
-  static navigationOptions = {
-    title: 'Chat with Lucy',
-  };
 
-  render() {
-    return (
-        <Text>Chat with Lucy</Text>
-    );
-  }
-}
 
 const App = StackNavigator({
   Home: {
