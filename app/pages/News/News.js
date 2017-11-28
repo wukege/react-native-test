@@ -2,7 +2,7 @@
  * Created by kege on 2017/11/20.
  */
 import React,{Component} from 'react';
-import {Text,Image,View,Button,StyleSheet} from 'react-native';
+import {Text,Image,View,Button,StyleSheet,Alert} from 'react-native';
 
 export default class News extends Component{
   static navigationOptions ={
@@ -14,6 +14,20 @@ export default class News extends Component{
         />
     ),
   };
+  constructor(props){
+    super(props);
+
+  }
+  componentWillMount(){
+    fetch('https://api.douban.com/v2/movie/celebrity/1054395')
+        .then((response) => response.json())
+        .then(resJoin =>{
+          Alert.alert('提示',resJoin.mobile_url)
+          console.log(resJoin)
+        }).catch(error =>{
+      console.error(error);
+    })
+  }
   render(){
     const {navigate} = this.props.navigation;
     return (
